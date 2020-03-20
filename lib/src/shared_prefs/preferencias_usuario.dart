@@ -14,11 +14,6 @@ class PreferenciasUsuario {
 
   SharedPreferences _prefs;
 
-  // Ninguna de estas opciones se usa
-  // bool _colorSecundario;
-  // int _genero;
-  // String _nombre;
-
   initPrefs() async {
     this._prefs = await SharedPreferences.getInstance();
   }
@@ -48,6 +43,15 @@ class PreferenciasUsuario {
 
   set nombreUsuario(String value) {
     _prefs.setString('nombreUsuario', value);
+  }
+
+  // Get y Set de la última página
+  get ultimaPagina {
+    return _prefs.getString('ultimaPagina') ?? 'home';
+  }
+
+  set ultimaPagina(String value) {
+    _prefs.setString('ultimaPagina', value);
   }
 
 }
